@@ -8,11 +8,11 @@ RUN mkdir -p /code && \
     mkdir -p /code/public/static && \
     mkdir -p /code/public/media
 
-COPY requirements.txt /code/
+#COPY requirements.txt /code/
 
 WORKDIR /code
 
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
 
 COPY backend /code/backend/
 COPY frontend /code/frontend/

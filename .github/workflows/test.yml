@@ -9,9 +9,7 @@ on:
 jobs:
   test:
     runs-on: docker-latest
-    services:
-      - postgres:11-alpine
-    variables:
+    env:
         SECRET_KEY: runner
         POSTGRES_DB: runner
         POSTGRES_USER: runner

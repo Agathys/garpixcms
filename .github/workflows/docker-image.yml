@@ -14,18 +14,3 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag new-image:$(date +%s)
-
-  test:
-    runs-on: docker-latest
-    env:
-        SECRET_KEY: runner
-        POSTGRES_DB: runner
-        POSTGRES_USER: runner
-        POSTGRES_PASSWORD: runner
-        POSTGRES_HOST: postgres
-        POSTGRES_PORT: ''
-        TEST: 1
-    steps:
-    - uses: actions/checkout@v2
-    - name: test
-      run: echo "SITE_ID=1" >> .env | python3 ./backend/manage.py migrate | python3 ./backend/manage.py qa
